@@ -13,6 +13,10 @@ description: {
 image: {
   type: String,
   required:true
+},
+button: {
+  type: String,
+  required:true
 }
 });
 

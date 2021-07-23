@@ -1,12 +1,27 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const cors = require("cors");
+const SliderSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+    unique: true,
+},
+   description: {
+   type: String,
+   required: true,
+},
+image: {
+  type: String,
+  required: false,
+},
 
-const userSchema = new Schema({
-title:String,
-description:String
-});
+  button: {
+   type: String,
+   required: true,
+},
+},
+{ timestamps: true }
+);
 
-const User = mongoose.model('Home', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model("Slider", SliderSchema);

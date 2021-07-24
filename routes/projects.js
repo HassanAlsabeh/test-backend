@@ -4,7 +4,7 @@ const cors = require("cors");
 const Project = require("../models/projects.model");
 const path = require("path");
 const multer = require("multer");
-const fs = require('fs');
+const fs = require("fs");
 
 router.use(express.static(path.join(__dirname, "../public"))); // <-- location of public dir
 const storage = multer.diskStorage({
@@ -28,7 +28,6 @@ router.delete("/delete/:id", (req, res) => {
   Project.findByIdAndDelete(req.params.id)
     .then(() => res.json("Project deleted."))
     .catch((err) => res.status(400).json("Error: " + err));
-    
 });
 
 router.post("/add", upload.single("image"), (req, res) => {
@@ -45,8 +44,6 @@ router.post("/add", upload.single("image"), (req, res) => {
 });
 
 router.put("/update/:id", upload.single("image"), (req, res) => {
-  
- 
   Project.findById(req.params.id)
     .then((projects) => {
       projects.title = req.body.title;

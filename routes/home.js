@@ -49,8 +49,6 @@ router.post("/add", upload.single("image"), async (req, res) => {
   const button = req.body.button;
   const image = req.file.filename;
 
-
-  
   const newSlider = new Slider({
     title,
     description,
@@ -64,7 +62,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
 });
 
 //update slider
-router.route("/update/:id",upload.single("image")).put(async (req, res) => {
+router.route("/update/:id", upload.single("image")).put(async (req, res) => {
   await Slider.findById(req.params.id)
     .then((Slider) => {
       Slider.title = req.body.title;

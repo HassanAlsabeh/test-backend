@@ -41,6 +41,11 @@ app.use("/project", projects);
 const Admins = require("./routes/admin");
 app.use("/login", Admins);
 
+const experiences = require("./routes/experiences");
+app.use("/experience", experiences);
+
+const contactAdd = require("./routes/contact");
+app.use("/contact", contactAdd);
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
